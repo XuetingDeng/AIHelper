@@ -7,6 +7,7 @@ from app.agents.response_agent import ResponseAgent
 from app.agents.retriever_agent import RetrieverAgent
 from app.agents.risk_agent import RiskSafetyAgent
 from app.config import DEFAULT_TODAY
+from app.llm.client import LLMClient, OpenAILLMClient
 from app.mcp_server.client import MCPClient
 from app.schemas import AgentOutput, BlockedAction, BriefingItem, Plan, RunRecord
 from app.tools.audit_log import write_audit_log
@@ -14,11 +15,17 @@ from app.tools.permission_tools import detect_requested_actions
 
 
 class Orchestrator:
-    def __init__(self, client: MCPClient | None = None) -> None:
+    def __init__(
+        self,
+        client: MCPClient | None = None,
+        llm_client: LLMClient | None = None,
+        use_llm: bool = False,
+    ) -> None:
         self.client = client or MCPClient()
-        self.planner = PlannerAgent()
+        active_llm_client = llm_client or (OpenAILLMClient() if use_llm else None)
+        self.planner = PlannerAgent(active_llm_client)
         self.risk = RiskSafetyAgent()
-        self.response = ResponseAgent()
+        self.response = ResponseAgent(active_llm_client)
 
     def run(self, query: str, mode: str = "optimized", today: str = DEFAULT_TODAY) -> AgentOutput:
         started = time.perf_counter()

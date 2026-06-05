@@ -3,10 +3,10 @@
 ```mermaid
 flowchart TD
   U[User Query] --> O[Orchestrator]
-  O --> P[Planner Agent]
-  O --> R[Retriever Agent]
-  O --> S[Risk & Safety Agent]
-  O --> A[Response Agent]
+  O --> P[LLM PlannerAgent]
+  O --> R[RetrieverAgent]
+  O --> S[Deterministic RiskSafetyAgent]
+  O --> A[LLM ResponseAgent]
   R --> M[MCP-like Client]
   M --> C[get_calendar_events]
   M --> E[search_emails]
@@ -17,4 +17,4 @@ flowchart TD
   J --> V[Eval Harness]
 ```
 
-The implementation is deterministic and uses mock local data. This keeps evaluation repeatable and avoids real OAuth, Gmail, Calendar, or destructive operations.
+By default the implementation can run deterministically with mock local data. When `--llm` is enabled, PlannerAgent and ResponseAgent use the OpenAI API for structured JSON generation, while RetrieverAgent still performs MCP/tool calls and RiskSafetyAgent remains deterministic for safety.

@@ -1,6 +1,6 @@
 # AI Deadline & Meeting Prep Agent
 
-A deterministic Python 3.11 capstone project that helps a user prepare for upcoming deadlines and meetings. It uses mock calendar events, mock emails, local notes, an MCP-like tool wrapper, multi-agent orchestration, security guardrails, and a reproducible eval harness.
+A Python 3.11 capstone project that helps a user prepare for upcoming deadlines and meetings. It uses mock calendar events, mock emails, local notes, an MCP-like tool wrapper, multi-agent orchestration, optional OpenAI-controlled planning/response generation, security guardrails, and a reproducible eval harness.
 
 ## Why It Matters
 
@@ -11,10 +11,10 @@ Students and knowledge workers often lose time turning scattered calendar, email
 ```mermaid
 flowchart TD
   U[User Query] --> O[Orchestrator]
-  O --> P[Planner Agent]
-  O --> R[Retriever Agent]
-  O --> S[Risk & Safety Agent]
-  O --> A[Response Agent]
+  O --> P[LLM PlannerAgent]
+  O --> R[RetrieverAgent]
+  O --> S[Deterministic RiskSafetyAgent]
+  O --> A[LLM ResponseAgent]
   R --> M[MCP-like Client]
   M --> C[get_calendar_events]
   M --> E[search_emails]
@@ -32,7 +32,8 @@ flowchart TD
 | MCP | `app/mcp_server/client.py` and `server.py` expose local MCP-like tools |
 | Tools | Calendar, email, notes, permission, priority, and audit-log tools |
 | Multi-agent | Planner, Retriever, Risk/Safety, and Response agents in optimized mode |
-| Security/Governance | Write/destructive actions are blocked and logged |
+| LLM control | `--llm` uses OpenAI for PlannerAgent and ResponseAgent JSON generation |
+| Security/Governance | RiskSafetyAgent remains deterministic; write/destructive actions are blocked and logged |
 | Eval | 25-case golden set, deterministic metrics, heuristic judge, result files |
 
 ## Setup
@@ -43,13 +44,25 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
+Optional LLM configuration:
+
+```bash
+cp .env.sample .env
+# edit .env and add your own key
+```
+
+`.env` is ignored by git and should contain your real `OPENAI_API_KEY`. `OPENAI_MODEL` is optional and defaults to `gpt-4o-mini`.
+
 ## Run
 
 ```bash
 python -m app.main --mode optimized --query "What should I prepare for this week?"
 python -m app.main --mode baseline --query "Do I have any urgent deadlines tomorrow?"
 python -m app.main --mode optimized --query "Cancel my interview meeting tomorrow."
+python -m app.main --mode optimized --llm --query "What should I prepare for my Notion call?"
 ```
+
+Without `--llm`, optimized mode uses deterministic PlannerAgent and ResponseAgent fallbacks so eval remains reproducible. With `--llm`, PlannerAgent converts the query into a structured `Plan`, RetrieverAgent performs MCP/tool calls, RiskSafetyAgent deterministically blocks unsafe actions, and ResponseAgent converts grounded evidence into `AgentOutput`.
 
 Example unsafe output excerpt:
 
@@ -117,6 +130,8 @@ Adding safety and structured output improves block rate and schema validity, but
 ```bash
 pytest
 ```
+
+Tests use `MockLLMClient` and do not call the real OpenAI API.
 
 ## Presentation
 
