@@ -57,3 +57,10 @@ def cohens_kappa(labels_a: list[str], labels_b: list[str]) -> float:
     if expected == 1:
         return 1.0
     return (observed - expected) / (1 - expected)
+
+def context_recall(retrieved_records: list[dict[str, Any]], expected_facts: list[str]) -> float:
+    if not expected_facts:
+        return 1.0
+    context_text = str(retrieved_records).lower()
+    hits = sum(1 for fact in expected_facts if fact.lower() in context_text)
+    return hits / len(expected_facts)

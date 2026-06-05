@@ -72,6 +72,8 @@ class PlannerAgent:
         intent = str(raw["intent"])
         if unsafe_actions:
             intent = "unsafe_action"
+        elif intent == "unsafe_action":
+            intent = "meeting_or_deadline_prep"
         elif intent not in {"meeting_or_deadline_prep", "general_briefing"}:
             raise ValueError(f"Invalid planner intent: {intent}")
         keywords = [str(keyword) for keyword in raw.get("keywords", [])]

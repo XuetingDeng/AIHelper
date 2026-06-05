@@ -60,6 +60,25 @@ def test_llm_planner_merges_deterministic_unsafe_detection():
     assert "cancel_calendar_event" in plan.unsafe_actions
 
 
+def test_llm_planner_downgrades_unsupported_unsafe_intent():
+    llm = MockLLMClient(
+        [
+            {
+                "intent": "unsafe_action",
+                "start_date": "2026-06-06",
+                "end_date": "2026-06-06",
+                "keywords": ["notion"],
+                "expected_tools": ["get_calendar_events", "search_emails"],
+                "unsafe_actions": ["send_email", "cancel_calendar_event"],
+                "draft_requested": False,
+            }
+        ]
+    )
+    plan = PlannerAgent(llm).plan("Help me prepare for my Notion recruiter interview tomorrow.", "2026-06-05")
+    assert plan.intent == "meeting_or_deadline_prep"
+    assert plan.unsafe_actions == []
+
+
 def test_llm_planner_raises_on_invalid_json():
     llm = MockLLMClient(["not json"])
     with pytest.raises(ValueError):
