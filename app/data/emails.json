@@ -1,0 +1,42 @@
+[
+  {
+    "id": "email_001",
+    "from": "caris@notion.so",
+    "subject": "Introductory call for Software Engineer, New Grad",
+    "date": "2026-06-04",
+    "body": "I reviewed your application and would love to schedule an introductory call. Please prepare questions about the team, your timeline, and why Notion interests you.",
+    "tags": ["recruiting", "notion", "important"]
+  },
+  {
+    "id": "email_002",
+    "from": "mentor@example.edu",
+    "subject": "AI capstone review expectations",
+    "date": "2026-06-03",
+    "body": "For Saturday's project review, bring your architecture diagram, eval metrics, experiment table, failure analysis, and a short demo script.",
+    "tags": ["ai", "capstone", "important"]
+  },
+  {
+    "id": "email_003",
+    "from": "career@example.edu",
+    "subject": "Resume feedback due tomorrow",
+    "date": "2026-06-05",
+    "body": "Please submit your revised resume by Saturday 5 PM. Include links to projects and a concise new-grad summary.",
+    "tags": ["career", "deadline", "important"]
+  },
+  {
+    "id": "email_004",
+    "from": "teammate@example.edu",
+    "subject": "Study group agenda",
+    "date": "2026-06-04",
+    "body": "For the data structures study group, we will cover heaps, graph traversal, and interview-style explanations.",
+    "tags": ["school", "meeting"]
+  },
+  {
+    "id": "email_005",
+    "from": "newsletter@example.com",
+    "subject": "Weekly tech links",
+    "date": "2026-06-02",
+    "body": "A list of optional readings about AI agents and productivity tools.",
+    "tags": ["newsletter"]
+  }
+]

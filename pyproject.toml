@@ -1,0 +1,10 @@
+[project]
+name = "ai-deadline-meeting-prep-agent"
+version = "0.1.0"
+description = "Deterministic AI deadline and meeting prep agent with eval harness."
+requires-python = ">=3.11"
+dependencies = ["pydantic>=2.7,<3"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]

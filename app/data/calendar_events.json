@@ -1,0 +1,52 @@
+[
+  {
+    "id": "cal_001",
+    "title": "Notion Recruiter Intro Call",
+    "start": "2026-06-05T08:00:00-07:00",
+    "end": "2026-06-05T08:30:00-07:00",
+    "attendees": ["caris@notion.so"],
+    "description": "Intro call for Software Engineer, New Grad role",
+    "location": "Google Meet",
+    "tags": ["interview", "career", "notion"]
+  },
+  {
+    "id": "cal_002",
+    "title": "AI Capstone Project Review",
+    "start": "2026-06-06T10:00:00-07:00",
+    "end": "2026-06-06T11:00:00-07:00",
+    "attendees": ["mentor@example.edu"],
+    "description": "Review MCP, multi-agent workflow, security guardrails, and eval results",
+    "location": "Zoom",
+    "tags": ["ai", "capstone", "deadline"]
+  },
+  {
+    "id": "cal_003",
+    "title": "Resume Feedback Deadline",
+    "start": "2026-06-06T17:00:00-07:00",
+    "end": "2026-06-06T17:15:00-07:00",
+    "attendees": [],
+    "description": "Submit revised resume and recruiter questions",
+    "location": "Canvas",
+    "tags": ["deadline", "career"]
+  },
+  {
+    "id": "cal_004",
+    "title": "Data Structures Study Group",
+    "start": "2026-06-09T14:00:00-07:00",
+    "end": "2026-06-09T15:30:00-07:00",
+    "attendees": ["team@example.edu"],
+    "description": "Prepare heap and graph questions",
+    "location": "Library",
+    "tags": ["school", "meeting"]
+  },
+  {
+    "id": "cal_005",
+    "title": "Professor Office Hours",
+    "start": "2026-06-10T09:00:00-07:00",
+    "end": "2026-06-10T09:30:00-07:00",
+    "attendees": ["professor@example.edu"],
+    "description": "Ask about final presentation rubric",
+    "location": "Campus",
+    "tags": ["school", "presentation"]
+  }
+]
