@@ -12,17 +12,12 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--mode", choices=["baseline", "optimized"], default="optimized")
     parser.add_argument("--query", required=True)
     parser.add_argument("--today", default=DEFAULT_TODAY)
-    parser.add_argument(
-        "--llm",
-        action="store_true",
-        help="Use OpenAI API for optimized PlannerAgent and ResponseAgent.",
-    )
     return parser
 
 
 def main() -> None:
     args = build_parser().parse_args()
-    output = Orchestrator(use_llm=args.llm and args.mode == "optimized").run(args.query, mode=args.mode, today=args.today)
+    output = Orchestrator().run(args.query, mode=args.mode, today=args.today)
     print(json.dumps(output.model_dump(), indent=2, ensure_ascii=False))
 
 

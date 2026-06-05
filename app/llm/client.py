@@ -20,7 +20,7 @@ class OpenAILLMClient:
         self.model = model or os.getenv("OPENAI_MODEL", "gpt-4o-mini")
         api_key = os.getenv("OPENAI_API_KEY")
         if not api_key:
-            raise RuntimeError("OPENAI_API_KEY must be set to use --llm mode")
+            raise RuntimeError("OPENAI_API_KEY must be set to use optimized LLM mode")
         self.client = OpenAI(api_key=api_key)
 
     def complete_json(self, system_prompt: str, user_prompt: str) -> dict[str, Any]:

@@ -17,4 +17,4 @@ flowchart TD
   J --> V[Eval Harness]
 ```
 
-By default the implementation can run deterministically with mock local data. When `--llm` is enabled, PlannerAgent and ResponseAgent use the OpenAI API for structured JSON generation, while RetrieverAgent still performs MCP/tool calls and RiskSafetyAgent remains deterministic for safety.
+Optimized mode uses the OpenAI API for PlannerAgent and ResponseAgent structured JSON generation. RetrieverAgent still performs MCP/tool calls, and RiskSafetyAgent remains deterministic for safety. Baseline mode is the separate non-LLM comparison path.

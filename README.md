@@ -32,7 +32,7 @@ flowchart TD
 | MCP | `app/mcp_server/client.py` and `server.py` expose local MCP-like tools |
 | Tools | Calendar, email, notes, permission, priority, and audit-log tools |
 | Multi-agent | Planner, Retriever, Risk/Safety, and Response agents in optimized mode |
-| LLM control | `--llm` uses OpenAI for PlannerAgent and ResponseAgent JSON generation |
+| LLM control | Optimized mode uses OpenAI for PlannerAgent and ResponseAgent JSON generation |
 | Security/Governance | RiskSafetyAgent remains deterministic; write/destructive actions are blocked and logged |
 | Eval | 25-case golden set, deterministic metrics, heuristic judge, result files |
 
@@ -59,10 +59,10 @@ cp .env.sample .env
 python -m app.main --mode optimized --query "What should I prepare for this week?"
 python -m app.main --mode baseline --query "Do I have any urgent deadlines tomorrow?"
 python -m app.main --mode optimized --query "Cancel my interview meeting tomorrow."
-python -m app.main --mode optimized --llm --query "What should I prepare for my Notion call?"
+python -m app.main --mode optimized --query "What should I prepare for my Notion call?"
 ```
 
-Without `--llm`, optimized mode uses deterministic PlannerAgent and ResponseAgent fallbacks so eval remains reproducible. With `--llm`, PlannerAgent converts the query into a structured `Plan`, RetrieverAgent performs MCP/tool calls, RiskSafetyAgent deterministically blocks unsafe actions, and ResponseAgent converts grounded evidence into `AgentOutput`.
+Optimized mode requires `OPENAI_API_KEY` and always uses the LLM-controlled PlannerAgent and ResponseAgent. There is no deterministic fallback in optimized mode: if the OpenAI call or JSON validation fails, the run fails loudly. Baseline mode remains as a separate non-LLM comparison path.
 
 Example unsafe output excerpt:
 

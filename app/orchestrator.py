@@ -19,13 +19,10 @@ class Orchestrator:
         self,
         client: MCPClient | None = None,
         llm_client: LLMClient | None = None,
-        use_llm: bool = False,
     ) -> None:
         self.client = client or MCPClient()
-        active_llm_client = llm_client or (OpenAILLMClient() if use_llm else None)
-        self.planner = PlannerAgent(active_llm_client)
+        self.llm_client = llm_client
         self.risk = RiskSafetyAgent()
-        self.response = ResponseAgent(active_llm_client)
 
     def run(self, query: str, mode: str = "optimized", today: str = DEFAULT_TODAY) -> AgentOutput:
         started = time.perf_counter()
@@ -47,11 +44,12 @@ class Orchestrator:
         return output
 
     def _run_optimized(self, query: str, today: str) -> AgentOutput:
-        plan = self.planner.plan(query, today)
+        active_llm_client = self.llm_client or OpenAILLMClient()
+        plan = PlannerAgent(active_llm_client).plan(query, today)
         records = RetrieverAgent(self.client).retrieve(plan, query)
         blocked = self.risk.blocked_actions(plan.unsafe_actions, query)
         priorities = {record.title: self.risk.priority(record, today) for record in records}
-        return self.response.build(plan, records, blocked, priorities)
+        return ResponseAgent(active_llm_client).build(plan, records, blocked, priorities)
 
     def _run_baseline(self, query: str, today: str) -> AgentOutput:
         plan = Plan(

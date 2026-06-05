@@ -1,3 +1,5 @@
+import pytest
+
 from app.agents.planner_agent import PlannerAgent
 from app.llm.client import MockLLMClient
 
@@ -58,8 +60,7 @@ def test_llm_planner_merges_deterministic_unsafe_detection():
     assert "cancel_calendar_event" in plan.unsafe_actions
 
 
-def test_llm_planner_falls_back_on_invalid_json():
+def test_llm_planner_raises_on_invalid_json():
     llm = MockLLMClient(["not json"])
-    plan = PlannerAgent(llm).plan("What should I prepare for this week?", "2026-06-05")
-    assert "get_calendar_events" in plan.expected_tools
-    assert plan.start_date == "2026-06-05"
+    with pytest.raises(ValueError):
+        PlannerAgent(llm).plan("What should I prepare for this week?", "2026-06-05")

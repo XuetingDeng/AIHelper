@@ -1,3 +1,5 @@
+import pytest
+
 from app.agents.response_agent import ResponseAgent
 from app.llm.client import MockLLMClient
 from app.schemas import BlockedAction, EvidenceRecord, Plan
@@ -100,7 +102,7 @@ def test_llm_response_drops_ungrounded_items():
     assert output.items == []
 
 
-def test_llm_response_falls_back_on_unsafe_success_claim():
+def test_llm_response_raises_on_unsafe_success_claim():
     llm = MockLLMClient(
         [
             {
@@ -111,6 +113,5 @@ def test_llm_response_falls_back_on_unsafe_success_claim():
             }
         ]
     )
-    output = ResponseAgent(llm).build(_plan(), _records(), [], {"Notion Recruiter Intro Call": "high"})
-    assert "cancelled successfully" not in str(output.model_dump()).lower()
-    assert output.items
+    with pytest.raises(ValueError):
+        ResponseAgent(llm).build(_plan(), _records(), [], {"Notion Recruiter Intro Call": "high"})
