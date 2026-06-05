@@ -38,5 +38,85 @@
     "date": "2026-06-02",
     "body": "A list of optional readings about AI agents and productivity tools.",
     "tags": ["newsletter"]
+  },
+  {
+    "id": "email_006",
+    "from": "no-reply@jobs.example.com",
+    "subject": "Online Assessment Invitation - Software Engineer, New Grad",
+    "date": "2026-06-05",
+    "body": "Thank you for applying to the Software Engineer, New Grad role. Please complete the online assessment by June 8 at 11:59 PM. The assessment will include data structures, algorithms, and basic system design questions.",
+    "tags": ["career", "oa", "sde-ng", "important", "deadline"]
+  },
+  {
+    "id": "email_007",
+    "from": "recruiting@startup-example.com",
+    "subject": "Next steps for SDE New Grad application",
+    "date": "2026-06-06",
+    "body": "Your application for the SDE New Grad position has moved forward. The next step is a coding OA followed by a recruiter screen. Please review arrays, graphs, heaps, and behavioral stories before starting.",
+    "tags": ["career", "oa", "sde-ng", "recruiting"]
+  },
+  {
+    "id": "email_008",
+    "from": "leasing@apartment-example.com",
+    "subject": "Apartment maintenance notice for Monday",
+    "date": "2026-06-06",
+    "body": "Our maintenance team will inspect smoke detectors and air filters on Monday between 9 AM and 12 PM. Please make sure the entry area is accessible. No action is required if you are not home.",
+    "tags": ["apartment", "maintenance", "notice"]
+  },
+  {
+    "id": "email_009",
+    "from": "leasing@apartment-example.com",
+    "subject": "Rent payment reminder",
+    "date": "2026-06-07",
+    "body": "This is a reminder that your rent payment is due by June 10. Late fees may apply after the due date. Please check your resident portal for payment details.",
+    "tags": ["apartment", "rent", "deadline", "important"]
+  },
+  {
+    "id": "email_010",
+    "from": "deals@shop-example.com",
+    "subject": "Limited time offer: 30% off productivity tools",
+    "date": "2026-06-05",
+    "body": "Upgrade your workspace with discounted notebooks, planners, desk lamps, and productivity accessories. This promotional email is optional and does not require action.",
+    "tags": ["advertisement", "promotion", "newsletter"]
+  },
+  {
+    "id": "email_011",
+    "from": "ads@careerboost-example.com",
+    "subject": "Sponsored: New grad resume review package",
+    "date": "2026-06-06",
+    "body": "Sponsored offer: Get resume feedback, mock interviews, and job search coaching for new grad software engineering roles. This is a promotional message.",
+    "tags": ["advertisement", "career", "promotion"]
+  },
+  {
+    "id": "email_012",
+    "from": "mentor@example.edu",
+    "subject": "Capstone eval checklist before presentation",
+    "date": "2026-06-07",
+    "body": "Before the final presentation, make sure your golden set has at least 25 cases, your baseline and optimized results are saved, and your failure analysis includes two or three concrete failed cases.",
+    "tags": ["ai", "capstone", "eval", "important"]
+  },
+  {
+    "id": "email_013",
+    "from": "professor@example.edu",
+    "subject": "Reminder: present results, not just demo",
+    "date": "2026-06-08",
+    "body": "For the capstone presentation, focus on your experiment design, metrics, result table, and what changed from baseline to optimized. A live demo is optional and should not take most of the time.",
+    "tags": ["capstone", "presentation", "important"]
+  },
+  {
+    "id": "email_014",
+    "from": "notifications@github.com",
+    "subject": "CI failed on eval workflow",
+    "date": "2026-06-08",
+    "body": "The eval workflow failed because the optimized result file was missing. Please rerun the eval script and commit eval/results/optimized.json before submission.",
+    "tags": ["github", "ci", "capstone", "deadline"]
+  },
+  {
+    "id": "email_015",
+    "from": "building@apartment-example.com",
+    "subject": "Package pickup reminder",
+    "date": "2026-06-09",
+    "body": "You have a package waiting in the apartment package room. Please pick it up within three days. This is a low-priority apartment notification.",
+    "tags": ["apartment", "package", "notice"]
   }
 ]

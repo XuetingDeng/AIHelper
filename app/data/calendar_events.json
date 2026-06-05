@@ -48,5 +48,105 @@
     "description": "Ask about final presentation rubric",
     "location": "Campus",
     "tags": ["school", "presentation"]
+  },
+  {
+    "id": "cal_006",
+    "title": "Mock Interview Practice",
+    "start": "2026-06-07T13:00:00-07:00",
+    "end": "2026-06-07T14:00:00-07:00",
+    "attendees": ["peer@example.edu"],
+    "description": "Practice behavioral and technical interview questions for new grad roles",
+    "location": "Zoom",
+    "tags": ["interview", "career", "practice"]
+  },
+  {
+    "id": "cal_007",
+    "title": "AI Agent Eval Result Review",
+    "start": "2026-06-07T16:00:00-07:00",
+    "end": "2026-06-07T17:00:00-07:00",
+    "attendees": ["mentor@example.edu"],
+    "description": "Review golden set, baseline score, optimized score, and failure analysis",
+    "location": "Google Meet",
+    "tags": ["ai", "capstone", "eval", "meeting"]
+  },
+  {
+    "id": "cal_008",
+    "title": "Capstone README Deadline",
+    "start": "2026-06-08T18:00:00-07:00",
+    "end": "2026-06-08T18:15:00-07:00",
+    "attendees": [],
+    "description": "Finish README with architecture, setup instructions, eval tables, and experiment conclusions",
+    "location": "GitHub",
+    "tags": ["deadline", "capstone", "documentation"]
+  },
+  {
+    "id": "cal_009",
+    "title": "System Design Study Session",
+    "start": "2026-06-08T20:00:00-07:00",
+    "end": "2026-06-08T21:30:00-07:00",
+    "attendees": ["study-group@example.edu"],
+    "description": "Review API design, database tradeoffs, caching, and distributed systems basics",
+    "location": "Library",
+    "tags": ["study", "system-design", "career"]
+  },
+  {
+    "id": "cal_010",
+    "title": "Recruiter Follow-up Reminder",
+    "start": "2026-06-09T09:00:00-07:00",
+    "end": "2026-06-09T09:15:00-07:00",
+    "attendees": [],
+    "description": "Prepare a draft follow-up email and review next steps before sending",
+    "location": "Personal",
+    "tags": ["email", "recruiter", "career"]
+  },
+  {
+    "id": "cal_011",
+    "title": "Project Demo Dry Run",
+    "start": "2026-06-09T18:00:00-07:00",
+    "end": "2026-06-09T19:00:00-07:00",
+    "attendees": ["teammate@example.edu"],
+    "description": "Practice the 15-minute capstone walkthrough using code, README, and result tables",
+    "location": "Zoom",
+    "tags": ["capstone", "presentation", "practice"]
+  },
+  {
+    "id": "cal_012",
+    "title": "Job Application Deadline",
+    "start": "2026-06-10T23:00:00-07:00",
+    "end": "2026-06-10T23:15:00-07:00",
+    "attendees": [],
+    "description": "Submit new grad software engineer application with updated resume and project links",
+    "location": "Company Portal",
+    "tags": ["deadline", "career", "resume"]
+  },
+  {
+    "id": "cal_013",
+    "title": "Security Guardrail Test Session",
+    "start": "2026-06-11T11:00:00-07:00",
+    "end": "2026-06-11T12:00:00-07:00",
+    "attendees": ["mentor@example.edu"],
+    "description": "Test unsafe action blocking for send email, cancel meeting, reschedule meeting, and delete note requests",
+    "location": "Google Meet",
+    "tags": ["security", "capstone", "eval"]
+  },
+  {
+    "id": "cal_014",
+    "title": "LeetCode Practice Block",
+    "start": "2026-06-11T19:00:00-07:00",
+    "end": "2026-06-11T20:30:00-07:00",
+    "attendees": [],
+    "description": "Practice heap, graph, BFS, DFS, and two-pointer problems for technical interviews",
+    "location": "Home",
+    "tags": ["study", "interview", "leetcode"]
+  },
+  {
+    "id": "cal_015",
+    "title": "Final Capstone Presentation",
+    "start": "2026-06-12T15:00:00-07:00",
+    "end": "2026-06-12T15:15:00-07:00",
+    "attendees": ["professor@example.edu", "class@example.edu"],
+    "description": "Present AI Deadline & Meeting Prep Agent architecture, code, eval results, experiment design, and failure analysis",
+    "location": "Classroom",
+    "tags": ["capstone", "presentation", "deadline"]
   }
 ]
