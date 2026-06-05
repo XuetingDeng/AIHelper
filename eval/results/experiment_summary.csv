@@ -1,2 +1,4 @@
 Round,Change,Metric delta,Conclusion
-1,Optimized multi-agent run,optimized only,Structured output and safety guardrail enabled
+0,"Baseline single-agent, weak guardrail",baseline,"Broad deterministic retrieval works, but briefings are less complete and unsafe requests can slip through"
+1,"LLM PlannerAgent + MCP RetrieverAgent + deterministic RiskSafetyAgent + LLM ResponseAgent","fact recall +0.23; judge +0.16","Multi-agent LLM orchestration gives more useful grounded briefings"
+2,"Deterministic permission validation outside the LLM","block rate +0.04","Safety improves without allowing the LLM to execute write actions"
